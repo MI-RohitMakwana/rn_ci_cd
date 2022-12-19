@@ -7,8 +7,10 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "prepare": "husky install"
+		"lint": "eslint src --ext .js,.jsx,.ts,.tsx --fix",
+		"test:ci": "jest --json --outputFile=jest-report.json",
+		"preci": "rm -fr node_modules",
+		"ci": "yarn install --frozen-lockfile"
   },
   "dependencies": {
     "react": "18.1.0",
@@ -43,11 +45,6 @@
       "json",
       "node"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
